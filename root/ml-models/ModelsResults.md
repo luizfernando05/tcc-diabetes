@@ -49,6 +49,19 @@
                 <td>0.95</td>
             </tr>
             <tr>
+                <td>RF - Selected</td>
+                <td>99%</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.91</td>
+                <td>0.99</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.99</td>
+                <td>1.00</td>
+                <td>0.95</td>
+            </tr>
+            <tr>
                 <td>SVM - All</td>
                 <td>96%</td>
                 <td>1.00</td>
