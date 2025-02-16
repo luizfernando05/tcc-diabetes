@@ -87,5 +87,18 @@
                 <td>0.95</td>
                 <td>0.95</td>
             </tr>
+            <tr>
+                <td>NB - All</td>
+                <td>94%</td>
+                <td>0.99</td>
+                <td>0.64</td>
+                <td>0.75</td>
+                <td>0.93</td>
+                <td>0.90</td>
+                <td>1.00</td>
+                <td>0.96</td>
+                <td>0.75</td>
+                <td>0.86</td>
+            </tr>
         </tbody>
 </table>
