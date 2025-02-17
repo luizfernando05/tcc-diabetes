@@ -36,6 +36,19 @@
                 <td>0.93</td>
             </tr>
             <tr>
+                <td>DT - Selected</td>
+                <td>98%</td>
+                <td>1.00</td>
+                <td>0.91</td>
+                <td>0.88</td>
+                <td>0.98</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.99</td>
+                <td>0.95</td>
+                <td>0.93</td>
+            </tr>
+            <tr>
                 <td>RF - All</td>
                 <td>99%</td>
                 <td>1.00</td>
