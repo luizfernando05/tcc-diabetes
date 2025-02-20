@@ -88,6 +88,19 @@
                 <td>0.91</td>
             </tr>
             <tr>
+                <td>SVM - Selected</td>
+                <td>96%</td>
+                <td>1.00</td>
+                <td>0.77</td>
+                <td>0.84</td>
+                <td>0.96</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.87</td>
+                <td>0.91</td>
+            </tr>
+            <tr>
                 <td>KNN - All</td>
                 <td>94%</td>
                 <td>0.98</td>
