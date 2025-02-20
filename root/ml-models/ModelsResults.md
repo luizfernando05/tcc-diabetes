@@ -114,6 +114,19 @@
                 <td>0.79</td>
             </tr>
             <tr>
+                <td>KNN - All</td>
+                <td>94%</td>
+                <td>0.98</td>
+                <td>0.82</td>
+                <td>0.70</td>
+                <td>0.94</td>
+                <td>0.90</td>
+                <td>0.90</td>
+                <td>0.96</td>
+                <td>0.86</td>
+                <td>0.79</td>
+            </tr>
+            <tr>
                 <td>GB - All</td>
                 <td>98%</td>
                 <td>1.00</td>
