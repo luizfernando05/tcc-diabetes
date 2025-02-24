@@ -179,7 +179,7 @@
                 <td>0.86</td>
             </tr>
             <tr>
-                <td>LR - Selected</td>
+                <td>LR</td>
                 <td>95%</td>
                 <td>0.99</td>
                 <td>0.64</td>
