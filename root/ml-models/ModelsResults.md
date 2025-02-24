@@ -178,5 +178,31 @@
                 <td>0.75</td>
                 <td>0.86</td>
             </tr>
+            <tr>
+                <td>LR - Selected</td>
+                <td>95%</td>
+                <td>0.99</td>
+                <td>0.64</td>
+                <td>0.87</td>
+                <td>0.96</td>
+                <td>0.90</td>
+                <td>0.95</td>
+                <td>0.98</td>
+                <td>0.75</td>
+                <td>0.91</td>
+            </tr>
+            <tr>
+                <td>LR - Selected</td>
+                <td>95%</td>
+                <td>0.99</td>
+                <td>0.64</td>
+                <td>0.87</td>
+                <td>0.96</td>
+                <td>0.90</td>
+                <td>0.95</td>
+                <td>0.98</td>
+                <td>0.75</td>
+                <td>0.91</td>
+            </tr>
         </tbody>
 </table>
