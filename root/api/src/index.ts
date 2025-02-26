@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import { AppDataSource } from './infra/database/data-source';
 
 dotenv.config();
 
@@ -12,6 +13,14 @@ app.get('/', (req, res) => {
   res.send('Hello from Diagly API!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+AppDataSource.initialize()
+  .then(() => {
+    console.log('Database connected.');
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Database connection error:', error);
+  });
