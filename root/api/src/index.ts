@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { AppDataSource } from './infra/database/data-source';
+import { errorMiddleware } from './infra/http/middleware/errorMiddleware';
 
 dotenv.config();
 
@@ -16,6 +17,15 @@ app.get('/', (req, res) => {
 AppDataSource.initialize()
   .then(() => {
     console.log('Database connected.');
+
+    app.use(
+      errorMiddleware as (
+        err: Error,
+        req: Request,
+        res: Response,
+        next: NextFunction
+      ) => void
+    );
 
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
