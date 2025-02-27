@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import { AppDataSource } from './infra/database/data-source';
-import { errorMiddleware } from './infra/http/middleware/errorMiddleware';
+import { AppDataSource } from '@infra/database/data-source';
+import { errorMiddleware } from '@infra/http/middleware/errorMiddleware';
 
 dotenv.config();
 
