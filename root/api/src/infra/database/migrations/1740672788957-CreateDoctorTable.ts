@@ -1,0 +1,69 @@
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from 'typeorm';
+
+export class CreateDoctorTable1740672788957 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: 'doctors',
+        columns: [
+          {
+            name: 'id',
+            type: 'varchar',
+            isPrimary: true,
+            generationStrategy: 'uuid',
+          },
+          {
+            name: 'name',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'email',
+            type: 'varchar',
+            isNullable: false,
+            isUnique: true,
+          },
+          {
+            name: 'password',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'created_by_admin_id',
+            type: 'varchar',
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP',
+            onUpdate: 'CURRENT_TIMESTAMP',
+          },
+        ],
+      })
+    );
+
+    await queryRunner.createForeignKey(
+      'doctors',
+      new TableForeignKey({
+        columnNames: ['created_by_admin_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'admins',
+        onDelete: 'CASCADE',
+      })
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('doctors');
+  }
+}
