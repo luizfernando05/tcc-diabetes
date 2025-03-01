@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import Admin from './Admin';
 
 @Entity('doctors')
 export class Doctor {
@@ -19,6 +22,10 @@ export class Doctor {
 
   @Column({ type: 'varchar', nullable: false })
   password: string;
+
+  @ManyToOne(() => Admin, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'created_by_admin_id' })
+  createdByAdmin: Admin;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
