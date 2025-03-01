@@ -2,14 +2,21 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import Patient from './Patient';
 
 @Entity('medical_data')
 export class MedicalData {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @ManyToOne(() => Patient, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'patient_id' })
+  patientId: Patient;
 
   @Column({ type: 'int', nullable: false })
   age: number;
