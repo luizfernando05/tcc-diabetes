@@ -4,7 +4,7 @@ import { Router } from 'express';
 const adminRoutes = Router();
 const createAdminController = new CreateAdminController();
 
-adminRoutes.post('/login', (req, res, next) => {
+adminRoutes.post('/', (req, res, next) => {
   createAdminController.handle(req, res, next);
 });
 
