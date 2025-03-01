@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import Doctor from './Doctors';
 
 @Entity('patients')
 export class Patient {
@@ -25,6 +28,10 @@ export class Patient {
 
   @Column({ type: 'enum', enum: ['Maculino', 'Feminino'], nullable: false })
   gender: 'Masculino' | 'Feminino';
+
+  @ManyToOne(() => Doctor, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'created_by_doctor_id' })
+  createdByDoctor: Doctor;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

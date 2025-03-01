@@ -4,10 +4,12 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import Admin from './Admin';
+import Patient from './Patient';
 
 @Entity('doctors')
 export class Doctor {
@@ -26,6 +28,9 @@ export class Doctor {
   @ManyToOne(() => Admin, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'created_by_admin_id' })
   createdByAdmin: Admin;
+
+  @OneToMany(() => Patient, (patient) => patient.createdByDoctor)
+  patients: Patient;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
