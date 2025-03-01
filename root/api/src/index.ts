@@ -2,6 +2,8 @@ import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { AppDataSource } from '@infra/database/data-source';
 import { errorMiddleware } from '@infra/http/middleware/errorMiddleware';
+import { AppError } from '@presentation/errors/AppError';
+import { routes } from './routes/routes';
 
 dotenv.config();
 
@@ -17,6 +19,12 @@ app.get('/', (req, res) => {
 AppDataSource.initialize()
   .then(() => {
     console.log('Database connected.');
+
+    app.use(routes);
+
+    app.use((req: Request, res: Response, next: NextFunction) => {
+      next(new AppError('Route not found', 404));
+    });
 
     app.use(
       errorMiddleware as (
