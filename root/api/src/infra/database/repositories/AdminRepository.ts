@@ -14,6 +14,10 @@ export class AdminRepository implements IAdminRepository {
     const createAdmin = this.ormRepository.create(admin);
     return this.ormRepository.save(createAdmin);
   }
+
+  async findByEmail(email: string): Promise<Admin | null> {
+    return this.ormRepository.findOne({ where: { email } });
+  }
 }
 
 export default AdminRepository;
