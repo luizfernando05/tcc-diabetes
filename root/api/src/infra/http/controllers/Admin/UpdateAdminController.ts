@@ -17,7 +17,17 @@ export class UpdateAdminController {
       const { id } = req.params;
       const { name, email, password } = req.body;
 
+      if (!id || !yup.string().uuid().isValidSync(id)) {
+        throw new AppError('Invalid ID.', 400);
+      }
+
       const adminRepository = new AdminRepository();
+      const adminExistis = await adminRepository.findById(id);
+
+      if (!adminExistis) {
+        throw new AppError('Admin not found.', 404);
+      }
+
       const updateAdminUseCase = new UpdateAdminUseCase(adminRepository);
 
       const updateAdmin = await updateAdminUseCase.execute({
