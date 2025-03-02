@@ -13,17 +13,19 @@ export class CreatePredictionTable1740673558714 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'patient_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'doctor_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'prediction_result',
