@@ -18,6 +18,10 @@ export class AdminRepository implements IAdminRepository {
   async findByEmail(email: string): Promise<Admin | null> {
     return this.ormRepository.findOne({ where: { email } });
   }
+
+  async update(admin: Admin): Promise<Admin> {
+    return this.ormRepository.save(admin);
+  }
 }
 
 export default AdminRepository;
