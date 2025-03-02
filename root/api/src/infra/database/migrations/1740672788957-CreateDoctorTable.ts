@@ -13,9 +13,11 @@ export class CreateDoctorTable1740672788957 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'name',
@@ -35,7 +37,7 @@ export class CreateDoctorTable1740672788957 implements MigrationInterface {
           },
           {
             name: 'created_by_admin_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'created_at',
