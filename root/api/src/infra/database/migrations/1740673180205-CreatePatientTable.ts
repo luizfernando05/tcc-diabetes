@@ -13,9 +13,11 @@ export class CreatePatientTable1740673180205 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'name',
@@ -45,7 +47,7 @@ export class CreatePatientTable1740673180205 implements MigrationInterface {
           },
           {
             name: 'created_by_doctor_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'created_at',
