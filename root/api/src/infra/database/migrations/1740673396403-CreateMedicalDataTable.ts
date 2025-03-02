@@ -13,13 +13,15 @@ export class CreateMedicalDataTable1740673396403 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
+            isGenerated: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'patient_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'age',
