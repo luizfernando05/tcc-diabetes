@@ -30,6 +30,10 @@ export class AdminRepository implements IAdminRepository {
   async update(admin: Admin): Promise<Admin> {
     return this.ormRepository.save(admin);
   }
+
+  async delete(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
+  }
 }
 
 export default AdminRepository;
