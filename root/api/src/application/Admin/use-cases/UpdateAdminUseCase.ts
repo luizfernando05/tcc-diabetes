@@ -1,11 +1,11 @@
-import AdminRepository from '@infra/database/repositories/AdminRepository';
 import { UpdateAdminDTO } from '../dtos/UpdateAdminDTO';
 import Admin from '@domain/entities/Admin';
 import { AppError } from '@presentation/errors/AppError';
 import { hash } from 'bcryptjs';
+import { IAdminRepository } from '@domain/repositories/IAdminRepository';
 
 export class UpdateAdminUseCase {
-  constructor(private adminRepository: AdminRepository) {}
+  constructor(private adminRepository: IAdminRepository) {}
 
   async execute(data: UpdateAdminDTO): Promise<Admin> {
     const { id, name, email, password } = data;
