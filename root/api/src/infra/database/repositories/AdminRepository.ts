@@ -23,6 +23,10 @@ export class AdminRepository implements IAdminRepository {
     return this.ormRepository.findOne({ where: { id } });
   }
 
+  async findAll(): Promise<Admin[]> {
+    return this.ormRepository.find();
+  }
+
   async update(admin: Admin): Promise<Admin> {
     return this.ormRepository.save(admin);
   }
