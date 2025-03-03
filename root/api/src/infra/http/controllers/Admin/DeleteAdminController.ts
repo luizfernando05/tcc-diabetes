@@ -1,6 +1,8 @@
 import DeleteAdminUseCase from '@application/Admin/use-cases/DeleteAdminUseCase';
 import AdminRepository from '@infra/database/repositories/AdminRepository';
+import { AppError } from '@presentation/errors/AppError';
 import { NextFunction, Request, Response } from 'express';
+import * as yup from 'yup';
 
 export class DeleteAdminController {
   async handle(
@@ -11,6 +13,10 @@ export class DeleteAdminController {
     try {
       const { id } = req.params;
 
+      if (!id || !yup.string().uuid().isValidSync(id)) {
+        throw new AppError('Invalid ID.', 400);
+      }
+
       const adminRepository = new AdminRepository();
       const deleteAdminUseCase = new DeleteAdminUseCase(adminRepository);
 
@@ -18,6 +24,11 @@ export class DeleteAdminController {
 
       return res.status(200).send();
     } catch (err) {
+      if (err instanceof yup.ValidationError) {
+        const errorMessage = err.errors.join(', ');
+        return next(new AppError(errorMessage, 400));
+      }
+
       next(err);
     }
   }
