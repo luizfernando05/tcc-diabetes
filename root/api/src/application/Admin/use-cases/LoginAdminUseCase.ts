@@ -1,11 +1,11 @@
-import AdminRepository from '@infra/database/repositories/AdminRepository';
 import { LoginAdminDTO } from '../dtos/LoginAdminDTO';
 import { AppError } from '@presentation/errors/AppError';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
+import { IAdminRepository } from '@domain/repositories/IAdminRepository';
 
 export class LoginAdminUseCase {
-  constructor(private adminRepository: AdminRepository) {}
+  constructor(private adminRepository: IAdminRepository) {}
 
   async execute({ email, password }: LoginAdminDTO): Promise<string> {
     const admin = await this.adminRepository.findByEmail(email);
