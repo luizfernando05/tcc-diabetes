@@ -6,4 +6,5 @@ export interface IAdminRepository {
   findById(id: string): Promise<Admin | null>;
   findAll(): Promise<Admin[]>;
   update(admin: Admin): Promise<Admin>;
+  delete(id: string): Promise<void>;
 }
