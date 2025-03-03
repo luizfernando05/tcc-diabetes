@@ -1,9 +1,9 @@
 import Admin from '@domain/entities/Admin';
-import AdminRepository from '@infra/database/repositories/AdminRepository';
+import { IAdminRepository } from '@domain/repositories/IAdminRepository';
 import { AppError } from '@presentation/errors/AppError';
 
 export class GetAdminByIdUseCase {
-  constructor(private adminRepository: AdminRepository) {}
+  constructor(private adminRepository: IAdminRepository) {}
 
   async execute(id: string): Promise<Admin> {
     const admin = await this.adminRepository.findById(id);
