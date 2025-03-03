@@ -1,4 +1,5 @@
 import CreateAdminController from '@infra/http/controllers/Admin/CreateAdminController';
+import GetAdminByIdController from '@infra/http/controllers/Admin/getByIdAdminController';
 import { LoginAdminController } from '@infra/http/controllers/Admin/LoginAdminController';
 import { UpdateAdminController } from '@infra/http/controllers/Admin/UpdateAdminController';
 import { Router } from 'express';
@@ -7,6 +8,7 @@ const adminRoutes = Router();
 const createAdminController = new CreateAdminController();
 const loginAdminController = new LoginAdminController();
 const updateAdminController = new UpdateAdminController();
+const getAdminByIdController = new GetAdminByIdController();
 
 adminRoutes.post('/', (req, res, next) => {
   createAdminController.handle(req, res, next);
@@ -18,6 +20,10 @@ adminRoutes.post('/login', (req, res, next) => {
 
 adminRoutes.put('/:id', (req, res, next) => {
   updateAdminController.handle(req, res, next);
+});
+
+adminRoutes.get('/:id', (req, res, next) => {
+  getAdminByIdController.handle(req, res, next);
 });
 
 export { adminRoutes };
