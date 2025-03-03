@@ -1,5 +1,5 @@
 import { IAdminRepository } from '@domain/repositories/IAdminRepository';
-import { CreateAdminDTO } from '../dtos/CreateAdminDto';
+import { CreateAdminDTO } from '../dtos/CreateAdminDTO';
 import Admin from '@domain/entities/Admin';
 import { AppError } from '@presentation/errors/AppError';
 import { hash } from 'bcryptjs';
