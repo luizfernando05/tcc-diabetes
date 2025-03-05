@@ -5,6 +5,6 @@ import { doctorRoutes } from './Doctor/doctor.routes';
 const routes = Router();
 
 routes.use('/admins', adminRoutes);
-routes.use('doctors', doctorRoutes);
+routes.use('/doctors', doctorRoutes);
 
 export { routes };
