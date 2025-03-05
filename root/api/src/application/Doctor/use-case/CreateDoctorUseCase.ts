@@ -22,7 +22,7 @@ export class CreateDoctorUseCase {
 
     const existingDoctor = await this.doctorRepository.findByEmail(data.email);
 
-    if (!existingDoctor) {
+    if (existingDoctor) {
       throw new AppError('Email already in use.', 409);
     }
 
