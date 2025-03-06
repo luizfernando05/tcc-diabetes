@@ -2,10 +2,10 @@ import { AppError } from '@presentation/errors/AppError';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import { LoginPatientDTO } from '../dto/LoginPatientDTO';
-import PatientRepository from '@infra/database/repositories/PatientRepository';
+import { IPatientRepository } from '@domain/repositories/IPatientRepository';
 
 export class LoginPatientUseCase {
-  constructor(private patientRepository: PatientRepository) {}
+  constructor(private patientRepository: IPatientRepository) {}
 
   async execute({ email, password }: LoginPatientDTO): Promise<string> {
     const patient = await this.patientRepository.findByEmail(email);
