@@ -6,4 +6,5 @@ export interface IPatientRepository {
   findAll(): Promise<Patient[]>;
   findById(id: string): Promise<Patient | null>;
   update(patient: Patient): Promise<Patient>;
+  delete(id: string): Promise<void>;
 }
