@@ -11,13 +11,13 @@ export class LoginPatientUseCase {
     const patient = await this.patientRepository.findByEmail(email);
 
     if (!patient) {
-      throw new AppError('Invalid credentials', 401);
+      throw new AppError('Invalid credentials.', 401);
     }
 
     const passwordCheck = await compare(password, patient.password);
 
     if (!passwordCheck) {
-      throw new AppError('Invalid credentials', 401);
+      throw new AppError('Invalid credentials.', 401);
     }
 
     if (!process.env.JWT_SECRET) {

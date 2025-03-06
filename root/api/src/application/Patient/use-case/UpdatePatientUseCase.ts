@@ -13,13 +13,13 @@ export class UpdatePatientUseCase {
     const patient = await this.patientRepository.findById(id);
 
     if (!patient) {
-      throw new AppError('Patient not found', 404);
+      throw new AppError('Patient not found.', 404);
     }
 
     if (email && email !== patient.email) {
       const emailInUse = await this.patientRepository.findByEmail(email);
       if (emailInUse) {
-        throw new AppError('Email already in use', 409);
+        throw new AppError('Email already in use.', 409);
       }
       patient.email = email;
     }
