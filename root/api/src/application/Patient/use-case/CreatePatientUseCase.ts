@@ -33,7 +33,7 @@ export class CreatePatientUseCase {
     const patient = new Patient();
     patient.name = data.name;
     patient.email = data.email;
-    patient.password = data.password;
+    patient.password = hashedPassword;
     patient.birthDate = data.birthDate;
     patient.gender = data.gender;
     patient.createdByDoctor = { id: data.createdByDoctorId } as any;
