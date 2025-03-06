@@ -5,4 +5,5 @@ export interface IMedicalDataRepository {
   findById(id: string): Promise<MedicalData | null>;
   findByPatientId(patientId: string): Promise<MedicalData | null>;
   update(medicalData: MedicalData): Promise<MedicalData>;
+  delete(id: string): Promise<void>;
 }
