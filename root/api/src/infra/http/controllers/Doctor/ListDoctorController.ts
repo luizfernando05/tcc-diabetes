@@ -3,7 +3,7 @@ import DoctorRepository from '@infra/database/repositories/DoctorRepository';
 import { NextFunction, Request, Response } from 'express';
 
 export class ListDoctorController {
-  async hanndle(
+  async handle(
     req: Request,
     res: Response,
     next: NextFunction
