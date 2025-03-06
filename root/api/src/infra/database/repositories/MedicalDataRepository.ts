@@ -31,6 +31,10 @@ export class MedicalDataRepository implements IMedicalDataRepository {
   async update(medicalData: MedicalData): Promise<MedicalData> {
     return this.ormRepository.save(medicalData);
   }
+
+  async delete(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
+  }
 }
 
 export default MedicalDataRepository;
