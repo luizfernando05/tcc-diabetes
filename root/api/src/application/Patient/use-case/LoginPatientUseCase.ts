@@ -20,13 +20,13 @@ export class LoginPatientUseCase {
       throw new AppError('Invalid credentials', 401);
     }
 
-    const token = sign(
-      { id: patient.id },
-      process.env.JWT_SECRET || 'default',
-      {
-        expiresIn: '1d',
-      }
-    );
+    if (!process.env.JWT_SECRET) {
+      throw new AppError('JWT secret is not defined.', 500);
+    }
+
+    const token = sign({ id: patient.id }, process.env.JWT_SECRET, {
+      expiresIn: '1d',
+    });
 
     return token;
   }
