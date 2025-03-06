@@ -14,6 +14,10 @@ export class MedicalDataRepository implements IMedicalDataRepository {
     const newMedicalData = this.ormRepository.create(medicalData);
     return this.ormRepository.save(newMedicalData);
   }
+
+  async findById(id: string): Promise<MedicalData | null> {
+    return this.ormRepository.findOne({ where: { id } });
+  }
 }
 
 export default MedicalDataRepository;
