@@ -24,11 +24,6 @@ export class DeleteAdminController {
 
       return res.status(200).send();
     } catch (err) {
-      if (err instanceof yup.ValidationError) {
-        const errorMessage = err.errors.join(', ');
-        return next(new AppError(errorMessage, 400));
-      }
-
       next(err);
     }
   }
