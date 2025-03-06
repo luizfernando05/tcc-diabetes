@@ -5,4 +5,5 @@ export interface IPatientRepository {
   findByEmail(email: string): Promise<Patient | null>;
   findAll(): Promise<Patient[]>;
   findById(id: string): Promise<Patient | null>;
+  update(patient: Patient): Promise<Patient>;
 }
