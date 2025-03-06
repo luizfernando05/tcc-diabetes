@@ -27,6 +27,10 @@ export class MedicalDataRepository implements IMedicalDataRepository {
       relations: ['patientId'],
     });
   }
+
+  async update(medicalData: MedicalData): Promise<MedicalData> {
+    return this.ormRepository.save(medicalData);
+  }
 }
 
 export default MedicalDataRepository;
