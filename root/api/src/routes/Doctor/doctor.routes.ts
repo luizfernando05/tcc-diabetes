@@ -1,4 +1,5 @@
 import CreateDoctorController from '@infra/http/controllers/Doctor/CreateDoctorController';
+import DeleteDoctorController from '@infra/http/controllers/Doctor/DeleteDoctorController';
 import GetByDoctorIdController from '@infra/http/controllers/Doctor/GetByIdDoctorController';
 import ListDoctorController from '@infra/http/controllers/Doctor/ListDoctorController';
 import LoginDoctorController from '@infra/http/controllers/Doctor/LoginDoctorController';
@@ -11,6 +12,7 @@ const loginDoctorController = new LoginDoctorController();
 const getByIdDoctorController = new GetByDoctorIdController();
 const listDoctorController = new ListDoctorController();
 const updateDoctorController = new UpdateDoctorController();
+const deleteDoctorController = new DeleteDoctorController();
 
 doctorRoutes.post('/', (req, res, next) => {
   createDoctorController.handle(req, res, next);
@@ -30,6 +32,10 @@ doctorRoutes.get('/', (req, res, next) => {
 
 doctorRoutes.put('/:id', (req, res, next) => {
   updateDoctorController.handle(req, res, next);
+});
+
+doctorRoutes.delete('/:id', (req, res, next) => {
+  deleteDoctorController.handle(req, res, next);
 });
 
 export { doctorRoutes };
