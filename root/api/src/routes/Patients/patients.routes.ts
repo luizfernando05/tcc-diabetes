@@ -1,4 +1,5 @@
 import CreatePatientController from '@infra/http/controllers/Patient/CreatePatientController';
+import DeletePatientController from '@infra/http/controllers/Patient/DeletePatientController';
 import GetByIdPatientController from '@infra/http/controllers/Patient/GetByIdPatientController';
 import ListPatientController from '@infra/http/controllers/Patient/ListPatientController';
 import LoginPatientController from '@infra/http/controllers/Patient/LoginPatientController';
@@ -11,6 +12,7 @@ const loginPatientController = new LoginPatientController();
 const getByIdPatientController = new GetByIdPatientController();
 const listPatientController = new ListPatientController();
 const updatePatientController = new UpdatePatientController();
+const deletePatientController = new DeletePatientController();
 
 patientsRoutes.post('/', (req, res, next) => {
   createPatientController.handle(req, res, next);
@@ -30,6 +32,10 @@ patientsRoutes.get('/', (req, res, next) => {
 
 patientsRoutes.put('/:id', (req, res, next) => {
   updatePatientController.handle(req, res, next);
+});
+
+patientsRoutes.delete('/:id', (req, res, next) => {
+  deletePatientController.handle(req, res, next);
 });
 
 export { patientsRoutes };
