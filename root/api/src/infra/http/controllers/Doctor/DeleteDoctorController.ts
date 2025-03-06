@@ -5,7 +5,7 @@ import { NextFunction, Request, Response } from 'express';
 import * as yup from 'yup';
 
 export class DeleteDoctorController {
-  async hanlde(
+  async handle(
     req: Request,
     res: Response,
     next: NextFunction
