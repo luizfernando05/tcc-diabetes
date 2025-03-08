@@ -4,6 +4,7 @@ import GetAdminByIdController from '@infra/http/controllers/Admin/getByIdAdminCo
 import ListAdminController from '@infra/http/controllers/Admin/ListAdminController';
 import { LoginAdminController } from '@infra/http/controllers/Admin/LoginAdminController';
 import { UpdateAdminController } from '@infra/http/controllers/Admin/UpdateAdminController';
+import { ensureAdminAuthenticated } from '@infra/http/middleware/auth/ensureAdminAuthenticated';
 import { Router } from 'express';
 
 const adminRoutes = Router();
@@ -14,7 +15,7 @@ const getAdminByIdController = new GetAdminByIdController();
 const listAdminController = new ListAdminController();
 const deleteAdminController = new DeleteAdminController();
 
-adminRoutes.post('/', (req, res, next) => {
+adminRoutes.post('/', ensureAdminAuthenticated, (req, res, next) => {
   createAdminController.handle(req, res, next);
 });
 
@@ -22,19 +23,19 @@ adminRoutes.post('/login', (req, res, next) => {
   loginAdminController.handle(req, res, next);
 });
 
-adminRoutes.put('/:id', (req, res, next) => {
+adminRoutes.put('/:id', ensureAdminAuthenticated, (req, res, next) => {
   updateAdminController.handle(req, res, next);
 });
 
-adminRoutes.get('/:id', (req, res, next) => {
+adminRoutes.get('/:id', ensureAdminAuthenticated, (req, res, next) => {
   getAdminByIdController.handle(req, res, next);
 });
 
-adminRoutes.get('/', (req, res, next) => {
+adminRoutes.get('/', ensureAdminAuthenticated, (req, res, next) => {
   listAdminController.handle(req, res, next);
 });
 
-adminRoutes.delete('/:id', (req, res, next) => {
+adminRoutes.delete('/:id', ensureAdminAuthenticated, (req, res, next) => {
   deleteAdminController.handle(req, res, next);
 });
 
