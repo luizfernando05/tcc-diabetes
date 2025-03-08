@@ -23,7 +23,17 @@ export class PredictionController {
 
       const result = await predictUseCase.execute({ doctorId, patientId });
 
-      return res.status(200).json(result);
+      const predictionLabels: { [key: number]: string } = {
+        0: 'Diabetic',
+        1: 'Pre-Diabect',
+        2: 'Non-Diabect',
+      };
+
+      return res.status(200).json({
+        predictionResult:
+          predictionLabels[Number(result.predictionResult)] || 'Unknown',
+        confidenceScore: result.confidenceScore,
+      });
     } catch (err) {
       next(err);
     }
