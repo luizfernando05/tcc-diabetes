@@ -5,6 +5,7 @@ import ListDoctorController from '@infra/http/controllers/Doctor/ListDoctorContr
 import LoginDoctorController from '@infra/http/controllers/Doctor/LoginDoctorController';
 import UpdateDoctorController from '@infra/http/controllers/Doctor/UpdateDoctorController';
 import { ensureAdminAuthenticated } from '@infra/http/middleware/auth/ensureAdminAuthenticated';
+import { ensureDoctorAuthenticated } from '@infra/http/middleware/auth/ensureDoctorAuthenticated';
 import { Router } from 'express';
 
 const doctorRoutes = Router();
@@ -23,19 +24,19 @@ doctorRoutes.post('/login', (req, res, next) => {
   loginDoctorController.handle(req, res, next);
 });
 
-doctorRoutes.get('/:id', (req, res, next) => {
+doctorRoutes.get('/:id', ensureDoctorAuthenticated, (req, res, next) => {
   getByIdDoctorController.handle(req, res, next);
 });
 
-doctorRoutes.get('/', (req, res, next) => {
+doctorRoutes.get('/', ensureAdminAuthenticated, (req, res, next) => {
   listDoctorController.handle(req, res, next);
 });
 
-doctorRoutes.put('/:id', (req, res, next) => {
+doctorRoutes.put('/:id', ensureDoctorAuthenticated, (req, res, next) => {
   updateDoctorController.handle(req, res, next);
 });
 
-doctorRoutes.delete('/:id', (req, res, next) => {
+doctorRoutes.delete('/:id', ensureDoctorAuthenticated, (req, res, next) => {
   deleteDoctorController.handle(req, res, next);
 });
 
