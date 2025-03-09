@@ -17,6 +17,10 @@ export class UpdatePatientController {
       const { id } = req.params;
       const { name, email, password, birthDate, gender } = req.body;
 
+      if (req.user.role !== 'patient' || req.user.id !== id) {
+        throw new AppError('You are not allowed to delete this patient.', 403);
+      }
+
       if (!id || !yup.string().uuid().isValidSync(id)) {
         throw new AppError('Invalid ID.', 400);
       }
