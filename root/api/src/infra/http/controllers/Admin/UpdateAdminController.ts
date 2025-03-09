@@ -17,12 +17,12 @@ export class UpdateAdminController {
       const { id } = req.params;
       const { name, email, password } = req.body;
 
-      if (req.user.role !== 'admin' || req.user.id !== id) {
-        throw new AppError('You are not allowed to update this doctor.', 403);
-      }
-
       if (!id || !yup.string().uuid().isValidSync(id)) {
         throw new AppError('Invalid ID.', 400);
+      }
+
+      if (req.user.role !== 'admin' || req.user.id !== id) {
+        throw new AppError('You are not allowed to update this doctor.', 403);
       }
 
       const adminRepository = new AdminRepository();
