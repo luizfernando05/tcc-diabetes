@@ -14,7 +14,7 @@ export class AdviceService {
       const response = await axios.post(
         this.apiUrl,
         {
-          model: 'command',
+          model: 'command-r-plus-08-2024',
           prompt: `
             You are a health and lifestyle specialist. Your task is to provide practical and personalized advice to improve the patient's health, **with a special focus on diabetes management**, if applicable.
 
