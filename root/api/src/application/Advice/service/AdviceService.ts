@@ -6,7 +6,7 @@ export class AdviceService {
   private apiUrl: string;
 
   constructor() {
-    this.apiUrl = 'https://api.cohere.ai/generate';
+    this.apiUrl = 'https://api.cohere.ai/v1/generate';
   }
 
   async generateAdvice(data: AdviceRequestDTO): Promise<AdviceResponseDTO> {
@@ -14,31 +14,42 @@ export class AdviceService {
       const response = await axios.post(
         this.apiUrl,
         {
-          model: 'command-xlarge-nightly',
+          model: 'command',
           prompt: `
-          Você é um especialista em saúde e estilo de vida. Sua tarefa é fornecer conselhos práticos e personalizados para melhorar a saúde do paciente, com base nos dados médicos fornecidos. Use o diagnóstico fornecido para direcionar suas recomendações e não o interprete novamente.
+            You are a health and lifestyle specialist. Your task is to provide practical and personalized advice to improve the patient's health, **with a special focus on diabetes management**, if applicable.
 
-          Paciente: ${data.patientName}, ${data.age} anos, ${data.gender}.
-          Dados médicos:
-          - Ureia: ${data.medicalData.urea}
-          - Creatinina: ${data.medicalData.cr}
-          - HbA1c: ${data.medicalData.hba1c}
-          - Colesterol: ${data.medicalData.chol}
-          - Triglicerídeos: ${data.medicalData.tg}
-          - HDL: ${data.medicalData.hdl}
-          - LDL: ${data.medicalData.ldl}
-          - VLDL: ${data.medicalData.vldl}
-          - IMC: ${data.medicalData.bmi}.
-          Diagnóstico confirmado: ${data.prediction.result} (Confiança: ${
-            data.prediction.confidenceScore * 100
-          }%).
+            **Patient Information:**  
+            - Name: ${data.patientName}  
+            - Age: ${data.age} years  
+            - Gender: ${data.gender}  
 
-          Considere as condições e os fatores de risco do paciente. Foque em dicas práticas que ele pode seguir, como:
-          1. Ajustes na dieta;
-          2. Exercícios físicos adequados.
+            **Medical Data:**  
+            - Urea: ${data.medicalData.urea}  
+            - Creatinine: ${data.medicalData.cr}  
+            - HbA1c: ${data.medicalData.hba1c}  
+            - Cholesterol: ${data.medicalData.chol}  
+            - Triglycerides: ${data.medicalData.tg}  
+            - HDL: ${data.medicalData.hdl}  
+            - LDL: ${data.medicalData.ldl}  
+            - VLDL: ${data.medicalData.vldl}  
+            - BMI: ${data.medicalData.bmi}  
 
-          Suas respostas devem ser claras e simples, evitando linguagem técnica desnecessária. Evite textos muitos longos, insira as informações em no máximo 300 palavras. Liste as recomendações em tópicos, sendo o mais direto e útil possível.
-          `,
+            **Confirmed Diagnosis:** ${data.prediction.result} (Confidence: ${
+              data.prediction.confidenceScore * 100
+            }%).  
+
+            ---  
+            **Instructions for your response:**  
+            - **Do not reinterpret the diagnosis.** Base your recommendations on the provided diagnosis.  
+            - Focus on **practical and specific** advice, including:  
+              1. **Appropriate dietary recommendations** for patients with diabetes and other risk factors.  
+              2. **Recommended physical activities**, considering the patient's condition.  
+              3. **Lifestyle changes** that can help manage diabetes and overall health.  
+            - Avoid technical language and provide clear and concise explanations.  
+            - Structure the response in bullet points, with a maximum of **300 words**.  
+
+            **Provide direct and actionable guidance that the patient can apply in daily life.**
+            `,
           max_tokens: 500,
           temperature: 0.7,
         },
@@ -50,7 +61,7 @@ export class AdviceService {
         }
       );
 
-      const advice = response.data.text.trim();
+      const advice = response.data.generations[0].text.trim();
 
       return { tips: advice };
     } catch (err) {
