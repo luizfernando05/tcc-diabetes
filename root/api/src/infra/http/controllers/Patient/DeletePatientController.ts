@@ -13,12 +13,12 @@ export class DeletePatientController {
     try {
       const { id } = req.params;
 
-      if (req.user.role !== 'patient' || req.user.id !== id) {
-        throw new AppError('You are not allowed to delete this patient.', 403);
-      }
-
       if (!id || !yup.string().uuid().isValidSync(id)) {
         throw new AppError('Invalid ID.', 400);
+      }
+
+      if (req.user.role !== 'patient' || req.user.id !== id) {
+        throw new AppError('You are not allowed to delete this patient.', 403);
       }
 
       const patientRepository = new PatientRepository();
