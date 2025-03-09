@@ -17,16 +17,16 @@ export class UpdateDoctorController {
       const { id } = req.params;
       const { name, email, password } = req.body;
 
+      if (!id || !yup.string().uuid().isValidSync(id)) {
+        throw new AppError('Invalid ID.', 400);
+      }
+
       if (req.user.role !== 'doctor' || req.user.id !== id) {
         throw new AppError('You are not allowed to delete this doctor.', 403);
       }
 
       const doctorRepository = new DoctorRepository();
       const updateDoctorUseCase = new UpdateDoctorUseCase(doctorRepository);
-
-      if (!id || !yup.string().uuid().isValidSync(id)) {
-        throw new AppError('Invalid ID.', 400);
-      }
 
       const updatedDoctor = await updateDoctorUseCase.execute({
         id,
