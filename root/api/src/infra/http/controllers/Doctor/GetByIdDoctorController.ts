@@ -13,6 +13,10 @@ export class GetByDoctorIdController {
     try {
       const { id } = req.params;
 
+      if (req.user.role !== 'doctor' || req.user.id !== id) {
+        throw new AppError('You are not allowed to view this doctor.', 403);
+      }
+
       if (!id || !yup.string().uuid().isValidSync(id)) {
         throw new AppError('Invalid ID.', 400);
       }
