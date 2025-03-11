@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use(cors({ origin: 'http://localhost:5174' }));
+app.use(cors({ origin: process.env.FRONT_URL }));
 
 app.get('/', (req, res) => {
   res.send('Hello from Diagly API!');
