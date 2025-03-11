@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
 @theme {
+  --font-poppins: Poppins, sans-serif;
+  --font-robot: Roboto, sans-serif;
+
   --color-yellow-01: #fefdfb;
   --color-yellow-02: #fffae9;
   --color-yellow-03: #fff4d2;

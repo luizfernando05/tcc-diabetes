@@ -18,7 +18,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <h2 className="text-xl font-bold mb-4">Login</h2>
+      <h2 className="text-xl font-poppins font-bold mb-4">Login</h2>
       <input
         type="email"
         placeholder="Email"
