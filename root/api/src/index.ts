@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import { AppDataSource } from '@infra/database/data-source';
 import { errorMiddleware } from '@infra/http/middleware/errorMiddleware';
 import { AppError } from '@presentation/errors/AppError';
@@ -11,6 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+app.use(cors({ origin: 'http://localhost:5174' }));
 
 app.get('/', (req, res) => {
   res.send('Hello from Diagly API!');
