@@ -10,7 +10,7 @@ const Login = () => {
     setError('');
     try {
       await login(role, email, password);
-      alert('Login successful!'); // Aqui pode ser substituído por redirecionamento
+      alert('Login successful!');
     } catch (err) {
       setError(err);
     }
