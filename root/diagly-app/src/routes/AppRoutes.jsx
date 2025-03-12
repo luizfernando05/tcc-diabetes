@@ -10,7 +10,7 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/patients/login" />} />
+        <Route path="/" element={<Navigate to="/patient/login" />} />
         <Route path="/:userType/login" element={<LoginPage />} />
       </Routes>
     </Router>
