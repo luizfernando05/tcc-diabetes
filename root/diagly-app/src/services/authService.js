@@ -1,18 +1,29 @@
-import axios from 'axios';
-
 const API_BASE_URL = 'http://localhost:3000';
 
 const authService = {
-  async login(userType, credentials) {
-    try {
-      const response = await axios.post(
-        `${API_BASE_URL}/${userType}/login`,
-        credentials
-      );
-      return response.data.token;
-    } catch (error) {
-      throw new Error(error.response?.data?.message || 'Login failed.');
+  login: async (userType, credentials) => {
+    const pluralUserType =
+      userType === 'admin'
+        ? 'admins'
+        : userType === 'doctor'
+        ? 'doctors'
+        : 'patients';
+
+    const response = await fetch(`${API_BASE_URL}/${pluralUserType}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Failed to login');
     }
+
+    return data.token;
   },
 };
 
