@@ -1,7 +1,7 @@
 import LogoIcon from '../../assets/logoIcon.svg?react';
-import InputField from '../../components/Forms/InputField';
+import InputField from '../Forms/InputField';
 
-const Login = () => {
+const LoginForm = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-02">
       <div className="bg-gray-01 p-8 rounded-lg shadow-lg w-96">
@@ -45,4 +45,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
