@@ -126,7 +126,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
 
   > npm run dev
 
-## ⭐ sResultados dos Modelos
+## ⭐ Resultados dos Modelos
 
 <table>
         <thead>
