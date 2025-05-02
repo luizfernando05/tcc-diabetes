@@ -24,7 +24,7 @@
         <tbody>
             <tr>
                 <td>DT - All</td>
-                <td>99%</td>
+                <td>98%</td>
                 <td>1.00</td>
                 <td>0.91</td>
                 <td>0.88</td>
