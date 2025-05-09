@@ -94,7 +94,7 @@ Caso queira rodar o treinamento dos modelos de ML implementados em sua máquina 
 
 - iii. Execute os Jupyters Notebooks.
 
-Para rodar a APi Diagly, siga os seguintes passos:
+Para rodar a API Diagly, siga os seguintes passos:
 
 Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu ambiente local.
 
@@ -120,7 +120,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
 
 - ix. Inicie o Docker em sua máquina local;
 
-- x. Crie o seu arquivo `.env` com baase no arquivo `.env.example` disponibilizado no repositório;
+- x. Crie o seu arquivo `.env`, no diretório `api-diagly`, com base no arquivo `.env.example` disponibilizado no repositório;
 
 - xi. Rode a aplicação com o comando:
 
