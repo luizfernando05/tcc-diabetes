@@ -128,6 +128,12 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
 
 ## ⭐ Resultados dos Modelos
 
+Obs:
+
+- Classe 0: diabético;
+- Classe 1: pré diabético;
+- Classe 2: não diabético.
+
 #### Resultados com todas as características
 
 <table>
