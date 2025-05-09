@@ -86,7 +86,7 @@ Caso queira rodar o treinamento dos modelos de ML implementados em sua máquina 
 
 - i. Clone o repositório:
 
-  > git clone https://github.com/mariabandeira/AdministracaoPublica
+  > git clone https://github.com/luizfernando05/tcc-diabetes
 
 - ii. Instale os pacotes necessários do Python:
 
