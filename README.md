@@ -128,6 +128,8 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
 
 ## ⭐ Resultados dos Modelos
 
+#### Resultados com todas as características
+
 <table>
         <thead>
             <tr>
@@ -151,7 +153,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
         </thead>
         <tbody>
             <tr>
-                <td>DT - All</td>
+                <td>DT</td>
                 <td>98%</td>
                 <td>1.00</td>
                 <td>0.91</td>
@@ -164,20 +166,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
                 <td>0.93</td>
             </tr>
             <tr>
-                <td>DT - Selected</td>
-                <td>98%</td>
-                <td>1.00</td>
-                <td>0.91</td>
-                <td>0.88</td>
-                <td>0.98</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.99</td>
-                <td>0.95</td>
-                <td>0.93</td>
-            </tr>
-            <tr>
-                <td>RF - All</td>
+                <td>RF</td>
                 <td>99%</td>
                 <td>1.00</td>
                 <td>1.00</td>
@@ -190,20 +179,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
                 <td>0.95</td>
             </tr>
             <tr>
-                <td>RF - Selected</td>
-                <td>99%</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.91</td>
-                <td>0.99</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.99</td>
-                <td>1.00</td>
-                <td>0.95</td>
-            </tr>
-            <tr>
-                <td>SVM - All</td>
+                <td>SVM</td>
                 <td>96%</td>
                 <td>1.00</td>
                 <td>0.77</td>
@@ -216,20 +192,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
                 <td>0.91</td>
             </tr>
             <tr>
-                <td>SVM - Selected</td>
-                <td>96%</td>
-                <td>1.00</td>
-                <td>0.77</td>
-                <td>0.84</td>
-                <td>0.96</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.87</td>
-                <td>0.91</td>
-            </tr>
-            <tr>
-                <td>KNN - All</td>
+                <td>KNN</td>
                 <td>94%</td>
                 <td>0.98</td>
                 <td>0.82</td>
@@ -242,20 +205,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
                 <td>0.79</td>
             </tr>
             <tr>
-                <td>KNN - All</td>
-                <td>94%</td>
-                <td>0.98</td>
-                <td>0.82</td>
-                <td>0.70</td>
-                <td>0.94</td>
-                <td>0.90</td>
-                <td>0.90</td>
-                <td>0.96</td>
-                <td>0.86</td>
-                <td>0.79</td>
-            </tr>
-            <tr>
-                <td>GB - All</td>
+                <td>GB</td>
                 <td>98%</td>
                 <td>1.00</td>
                 <td>0.91</td>
@@ -268,33 +218,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
                 <td>0.95</td>
             </tr>
             <tr>
-                <td>GB - Selected</td>
-                <td>98%</td>
-                <td>1.00</td>
-                <td>0.91</td>
-                <td>0.91</td>
-                <td>0.98</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.99</td>
-                <td>0.95</td>
-                <td>0.95</td>
-            </tr>
-            <tr>
-                <td>NB - All</td>
-                <td>94%</td>
-                <td>0.99</td>
-                <td>0.64</td>
-                <td>0.75</td>
-                <td>0.93</td>
-                <td>0.90</td>
-                <td>1.00</td>
-                <td>0.96</td>
-                <td>0.75</td>
-                <td>0.86</td>
-            </tr>
-            <tr>
-                <td>NB - Selected</td>
+                <td>NB</td>
                 <td>94%</td>
                 <td>0.99</td>
                 <td>0.64</td>
@@ -319,8 +243,113 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
                 <td>0.75</td>
                 <td>0.91</td>
             </tr>
+        </tbody>
+</table>
+
+#### Resultados com as KBests características
+
+<table>
+        <thead>
             <tr>
-                <td>LR - Selected</td>
+                <th rowspan="2">Modelo</th>
+                <th rowspan="2">Acurácia</th>
+                <th colspan="3">Precisão</th>
+                <th colspan="3">Recall</th>
+                <th colspan="3">F1-Score</th>
+            </tr>
+            <tr>
+                <th>Classe 0</th>
+                <th>Classe 1</th>
+                <th>Classe 2</th>
+                <th>Classe 0</th>
+                <th>Classe 1</th>
+                <th>Classe 2</th>
+                <th>Classe 0</th>
+                <th>Classe 1</th>
+                <th>Classe 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DT</td>
+                <td>98%</td>
+                <td>1.00</td>
+                <td>0.91</td>
+                <td>0.88</td>
+                <td>0.98</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.99</td>
+                <td>0.95</td>
+                <td>0.93</td>
+            </tr>
+            <tr>
+                <td>RF</td>
+                <td>99%</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.91</td>
+                <td>0.99</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.99</td>
+                <td>1.00</td>
+                <td>0.95</td>
+            </tr>
+            <tr>
+                <td>SVM</td>
+                <td>96%</td>
+                <td>1.00</td>
+                <td>0.77</td>
+                <td>0.84</td>
+                <td>0.96</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.87</td>
+                <td>0.91</td>
+            </tr>
+            <tr>
+                <td>KNN</td>
+                <td>94%</td>
+                <td>0.98</td>
+                <td>0.82</td>
+                <td>0.70</td>
+                <td>0.94</td>
+                <td>0.90</td>
+                <td>0.90</td>
+                <td>0.96</td>
+                <td>0.86</td>
+                <td>0.79</td>
+            </tr>
+            <tr>
+                <td>GB</td>
+                <td>98%</td>
+                <td>1.00</td>
+                <td>0.91</td>
+                <td>0.91</td>
+                <td>0.98</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.99</td>
+                <td>0.95</td>
+                <td>0.95</td>
+            </tr>
+            <tr>
+                <td>NB</td>
+                <td>94%</td>
+                <td>0.99</td>
+                <td>0.64</td>
+                <td>0.75</td>
+                <td>0.93</td>
+                <td>0.90</td>
+                <td>1.00</td>
+                <td>0.96</td>
+                <td>0.75</td>
+                <td>0.86</td>
+            </tr>
+            <tr>
+                <td>LR</td>
                 <td>95%</td>
                 <td>0.99</td>
                 <td>0.64</td>
