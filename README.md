@@ -128,7 +128,7 @@ Obs: certifique-se de ter todas as tecnologias necessárias instaladas em seu am
 
 ## ⭐ Resultados dos Modelos
 
-Foram treinados os modelos [Decision Tree](/root/ml-models/notebooks/TrainningDT.ipynb), [Gradient Boosting](/root/ml-models/notebooks/TrainningGB.ipynb), [K-Nearest Neighbors](/root/ml-models/notebooks/TrainningKNN.ipynb), [Naive Bayers](/root/ml-models/notebooks/TrainningNB.ipynb), [Random Forest](/root/ml-models/notebooks/TrainningRF.ipynb) e [Suport Vector Machine](/root/ml-models/notebooks/TrainningSVM.ipynb).
+Foram treinados os modelos [Decision Tree](/root/ml-models/notebooks/TrainningDT.ipynb), [Gradient Boosting](/root/ml-models/notebooks/TrainningGB.ipynb), [K-Nearest Neighbors](/root/ml-models/notebooks/TrainningKNN.ipynb), [Naive Bayers](/root/ml-models/notebooks/TrainningNB.ipynb), [Random Forest](/root/ml-models/notebooks/TrainningRF.ipynb), [Logistic Regression](/root/ml-models/notebooks/TrainningLR.ipynb) e [Suport Vector Machine](/root/ml-models/notebooks/TrainningSVM.ipynb).
 
 Obs:
 
