@@ -21,10 +21,10 @@ export class MedicalData {
   @Column({ type: 'int', nullable: false })
   age: number;
 
-  @Column({ type: 'float', nullable: false })
+  @Column({ type: 'float', nullable: true })
   urea: number;
 
-  @Column({ type: 'float', nullable: false })
+  @Column({ type: 'float', nullable: true })
   cr: number;
 
   @Column({ type: 'float', nullable: false })
@@ -36,13 +36,13 @@ export class MedicalData {
   @Column({ type: 'float', nullable: false })
   tg: number;
 
-  @Column({ type: 'float', nullable: false })
+  @Column({ type: 'float', nullable: true })
   hdl: number;
 
-  @Column({ type: 'float', nullable: false })
+  @Column({ type: 'float', nullable: true })
   ldl: number;
 
-  @Column({ type: 'float', nullable: false })
+  @Column({ type: 'float', nullable: true })
   vldl: number;
 
   @Column({ type: 'float', nullable: false })
