@@ -50,15 +50,10 @@ export class AdviceService {
             - Age: ${data.age} years  
             - Gender: ${data.gender}  
 
-            **Medical Data:**  
-            - Urea: ${data.medicalData.urea}  
-            - Creatinine: ${data.medicalData.cr}  
+            **Medical Data:**    
             - HbA1c: ${data.medicalData.hba1c}  
             - Cholesterol: ${data.medicalData.chol}  
             - Triglycerides: ${data.medicalData.tg}  
-            - HDL: ${data.medicalData.hdl}  
-            - LDL: ${data.medicalData.ldl}  
-            - VLDL: ${data.medicalData.vldl}  
             - BMI: ${data.medicalData.bmi}  
 
             **Confirmed Diagnosis:** ${data.prediction.result} (Confidence: ${data.prediction.confidenceScore * 100}%).
