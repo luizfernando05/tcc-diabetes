@@ -7,18 +7,15 @@ class DataPreprocessor:
         features = [
             self.gender_mapping[data["gender"]],
             data["age"],
-            data["urea"],
-            data["cr"],
             data["hba1c"],
             data["chol"],
             data["tg"],
-            data["hdl"],
-            data["ldl"],
-            data["vldl"],
             data["bmi"]
         ]
 
         return pd.DataFrame([features], columns=[
-            "Gender", "AGE", "Urea", "Cr", "HbA1c", "Chol",
-            "TG", "HDL", "LDL", "VLDL", "BMI"
+            "Gender", "AGE", "HbA1c", "Chol",
+            "TG", "BMI"
         ])
+    
+    'Gender', 'AGE', 'HbA1c', 'Chol', 'TG', 'BMI'

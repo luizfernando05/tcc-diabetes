@@ -2,7 +2,8 @@ import joblib
 
 class DiabetesPredictionModel:
   def __init__(self):
-    self.model = joblib.load('ml-model/random_forest_model.joblib')
+    # self.model = joblib.load('ml-model/random_forest_model.joblib')
+    self.model = joblib.load('ml-model/randomForest_KBest_model.joblib')
   
   def predict(self, input_data):
     return self.model.predict(input_data)[0]
