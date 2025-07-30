@@ -35,14 +35,9 @@ export class PredictUseCase {
     const predictionData = {
       gender: patient.gender,
       age: medicalData.age,
-      urea: medicalData.urea,
-      cr: medicalData.cr,
       hba1c: medicalData.hba1c,
       chol: medicalData.chol,
       tg: medicalData.tg,
-      hdl: medicalData.hdl,
-      ldl: medicalData.ldl,
-      vldl: medicalData.vldl,
       bmi: medicalData.bmi,
     };
 
