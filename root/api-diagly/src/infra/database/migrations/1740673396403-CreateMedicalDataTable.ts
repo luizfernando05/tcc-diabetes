@@ -31,12 +31,12 @@ export class CreateMedicalDataTable1740673396403 implements MigrationInterface {
           {
             name: 'urea',
             type: 'float',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'cr',
             type: 'float',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'hba1c',
@@ -56,17 +56,17 @@ export class CreateMedicalDataTable1740673396403 implements MigrationInterface {
           {
             name: 'hdl',
             type: 'float',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'ldl',
             type: 'float',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'vldl',
             type: 'float',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'bmi',
@@ -87,6 +87,7 @@ export class CreateMedicalDataTable1740673396403 implements MigrationInterface {
         ],
       })
     );
+
     await queryRunner.createForeignKey(
       'medical_data',
       new TableForeignKey({
