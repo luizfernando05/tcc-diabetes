@@ -60,7 +60,7 @@ export class AdviceService {
       const response = await axios.post(
         this.apiUrl,
         {
-          model: 'command-r-plus-08-2024',
+          model: 'command-nightly',
           message: prompt,
           chat_history: [],
           temperature: 0.7,
@@ -88,3 +88,4 @@ export class AdviceService {
 }
 
 export default AdviceService;
+
